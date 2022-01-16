@@ -54,53 +54,59 @@ class ProcessUser
     public function calculatePaymentSalary(): int
     {
         $lastDayOfCurrentMonth = date('t');
-        $currentDate = new \DateTime ();
-        $currentDate->setDate(
-            intval($currentDate->format('Y')),
-            intval($currentDate->format('m')),
+        $dateToday = new \DateTime ();
+        $dateToday->setDate(
+            intval($dateToday->format('Y')),
+            intval($dateToday->format('m')),
             intval($lastDayOfCurrentMonth)
         );
+        // We check if the base salaries are paid on the last day of the month unless that day is a
+        // Saturday or a Sunday (weekend).
+        $paymentSalaryPerDa = $dateToday->format('D');
+        if ($paymentSalaryPerDa === Date::SATURDAY) {
 
-        $paymentSalariesDay = $currentDate->format('D');
-        if ($paymentSalariesDay === Date::SATURDAY) {
-
-            return intval($currentDate->format('d')) - 2;
+            $result = intval($dateToday->format('d')) - 2;
         } else {
-            if ($paymentSalariesDay === Date::FRIDAY) {
+            if ($paymentSalaryPerDa === Date::FRIDAY) {
 
-                return intval($currentDate->format('d')) - 1;
+                $result = intval($dateToday->format('d')) - 1;
             } else {
 
-                return intval($currentDate->format('d'));
+                $result = intval($dateToday->format('d'));
             }
         }
+
+        return $result;
     }
 
     /**
-     * @return int
+     * @return float
      */
-    public function calculateBonusSalary(): int
+    public function calculateBonusSalary(): float
     {
-        $currentDate = new \DateTime ();
+        $dateToday = new \DateTime ();
 
-        $currentDate->setDate(
-            intval($currentDate->format('Y')),
-            intval($currentDate->format('m')),
+        $dateToday->setDate(
+            intval($dateToday->format('Y')),
+            intval($dateToday->format('m')),
             15
         );
 
-        $bonusSalariesDay = $currentDate->format('D');
-        if ($bonusSalariesDay == Date::SATURDAY) {
-            $bonusSalariesDay = intval($currentDate->format('d')) + 6;
+        $bonusSalary = $dateToday->format('D');
+        // We check if the 15th of every month bonuses are paid for the previous month, unless
+        // that day is a weekend. In that case, they are paid the first Wednesday after
+        // the 15th.
+        if ($bonusSalary == Date::SATURDAY) {
+            $result = intval($dateToday->format('d')) + 6;
         } else {
-            if ($bonusSalariesDay == Date::FRIDAY) {
-                $bonusSalariesDay = intval($currentDate->format('d')) + 5;
+            if ($bonusSalary == Date::FRIDAY) {
+                $result = intval($dateToday->format('d')) + 5;
             } else {
-                $bonusSalariesDay = intval($currentDate->format('d'));
+                $result = intval($dateToday->format('d'));
             }
         }
 
-        return $bonusSalariesDay;
+        return $result;
     }
 
 }

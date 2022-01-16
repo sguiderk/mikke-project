@@ -32,7 +32,7 @@ services:
       - ./logs/mysql:/var/log/mysql
     environment:
       MYSQL_ROOT_PASSWORD: dragon123
-      MYSQL_DATABASE: db_tickets_calls
+      MYSQL_DATABASE: db_sales_payroll
       MYSQL_USER: samir
       MYSQL_PASSWORD: lyon123
   composer:

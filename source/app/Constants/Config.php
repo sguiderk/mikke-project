@@ -16,5 +16,5 @@ class Config
     const DB_HOST = 'mysql';
     const DB_USER = 'root';
     const DB_PASS = 'dragon123';
-    const DB_NAME = 'db_tickets_calls';
+    const DB_NAME = 'db_sales_payroll';
 }
