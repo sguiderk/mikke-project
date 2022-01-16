@@ -3,7 +3,6 @@
 namespace SalesPayrollAppTest\Services;
 
 use SalesPayrollApp\Db\FactoryDB;
-use SalesPayrollApp\Models\File;
 use SalesPayrollApp\Services\ProcessFile;
 use SalesPayrollApp\Services\ProcessPayslip;
 use SalesPayrollApp\Services\ProcessUser;

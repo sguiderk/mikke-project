@@ -11,7 +11,7 @@ PSR1,PSR2,PSR3 ,
 
 ## Import the database
 ### Setup
-- `the table to import is in the folder db_to_import\table_to_import.sql`
+- `the table to import is in the folder dbToImport\tables_to_import.sql`
 
 ## Execute the script 
 
