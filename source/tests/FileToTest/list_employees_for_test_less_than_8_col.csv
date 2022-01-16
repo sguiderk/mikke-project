@@ -1,0 +1,3 @@
+ id; first_name; email; salary; age; job_title; gender
+1; samir; samir@gmail.com; 3000; 30; software engineer ; male
+2; sara; sara@gmail.com; 4000; 30; software engineer ; female

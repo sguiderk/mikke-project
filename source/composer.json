@@ -1,0 +1,26 @@
+{
+  "name": "sguiderk/SalesPayrollAppAppApp",
+  "description": "Import calls teckets db",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Samir GUIDERK",
+      "email": "samir.guiderk@gmail.com"
+    }
+  ],
+  "require": {
+    "corneltek/cliframework": "*",
+    "ext-mysqli": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.4",
+    "phpdocumentor/reflection-docblock": "~2.0",
+    "phpdocumentor/phpdocumentor": "^2.9"
+  },
+  "autoload": {
+    "psr-4": {
+      "SalesPayrollApp\\": "app",
+      "SalesPayrollAppTest\\": "tests"
+    }
+  }
+}

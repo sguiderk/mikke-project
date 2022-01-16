@@ -1,0 +1,42 @@
+version: '2'
+services:
+  php:
+    build: ./php
+    ports:
+      - "89:80"
+    depends_on:
+      - mysql
+    volumes:
+      - ./source:/var/www/html
+      - ./config/php/php.ini:/usr/local/etc/php/php.ini
+      - ./config/vhosts:/etc/apache2/sites-enabled
+      - ./logs/apache2:/var/log/apache2
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: 'png-phpmyadmin'
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - '8080:80'
+  mysql:
+    build: ./mysql
+    container_name: 'png-mysql'
+    restart: 'always'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/mysql:/var/lib/mysql
+      - ./logs/mysql:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: dragon123
+      MYSQL_DATABASE: db_tickets_calls
+      MYSQL_USER: samir
+      MYSQL_PASSWORD: lyon123
+  composer:
+    image: composer:1.9
+    volumes:
+      - ./source:/app
+    command: install
