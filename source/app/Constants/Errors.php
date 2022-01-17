@@ -17,5 +17,6 @@ class Errors
     public const DB_UNABLE_TO_CONNECT   = 'Unable to connect to database';
     public const DB_NO_ROW_FOUND        = 'No Row Found by This Query';
     public const FILE_NOT_VALID         = 'The file is not valid';
+    public const FILE_NOT_READABLE      = 'The file is not readable';
     public const FILE_NUMBER_COLUMN     = 'The number of column should be 8';
 }

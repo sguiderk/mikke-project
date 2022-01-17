@@ -1,0 +1,3 @@
+id; first_name; email; salary; age; job_title; gender; address
+1; samir; samir@gmail.com; 3000; 30; software engineer; male; 88 Zaandam
+2; sara; sara@gmail.com; 4000; 30; software engineer; female; 88 Zaandam
